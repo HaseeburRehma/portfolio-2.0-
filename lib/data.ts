@@ -17,331 +17,242 @@ export const SOCIAL_LINKS = [
   { name: 'Old Version', url: GENERAL_INFO.oldPortfolio },
 ];
 
-export const MY_STACK = {
+export const MY_STACK: Record<string, { name: string; icon?: string }[]> = {
   frontend: [
-    {
-      name: 'Javascript',
-      icon: '/logo/js.png',
-    },
-    {
-      name: 'Typescript',
-      icon: '/logo/ts.png',
-    },
-    {
-      name: 'React',
-      icon: '/logo/react.png',
-    },
-    {
-      name: 'Next.js',
-      icon: '/logo/next.png',
-    },
-    {
-      name: 'Redux',
-      icon: '/logo/redux.png',
-    },
-    {
-      name: 'Tailwind CSS',
-      icon: '/logo/tailwind.png',
-    },
-    {
-      name: 'GSAP',
-      icon: '/logo/gsap.png',
-    },
-    {
-      name: 'Frammer Motion',
-      icon: '/logo/framer-motion.png',
-    },
-    {
-      name: 'SASS',
-      icon: '/logo/sass.png',
-    },
-    {
-      name: 'Bootstrap',
-      icon: '/logo/bootstrap.svg',
-    },
+    { name: 'TypeScript', icon: '/logo/ts.png' },
+    { name: 'JavaScript', icon: '/logo/js.png' },
+    { name: 'React', icon: '/logo/react.png' },
+    { name: 'Next.js', icon: '/logo/next.png' },
+    { name: 'Tailwind CSS', icon: '/logo/tailwind.png' },
+    { name: 'GSAP', icon: '/logo/gsap.png' },
+    { name: 'Motion', icon: '/logo/framer-motion.png' },
+  ],
+  mobile: [
+    { name: 'React Native', icon: '/logo/react.png' },
+    { name: 'Expo' },
   ],
   backend: [
-    {
-      name: 'Node.js',
-      icon: '/logo/node.png',
-    },
-    {
-      name: 'Nest.js',
-      icon: '/logo/nest.svg',
-    },
-    {
-      name: 'Express.js',
-      icon: '/logo/express.png',
-    },
+    { name: 'Node.js', icon: '/logo/node.png' },
+    { name: 'Express.js', icon: '/logo/express.png' },
+    { name: 'PHP / Laravel' },
+    { name: 'Python' },
   ],
   database: [
-    {
-      name: 'MySQL',
-      icon: '/logo/mysql.svg',
-    },
-    {
-      name: 'PostgreSQL',
-      icon: '/logo/postgreSQL.png',
-    },
-    {
-      name: 'MongoDB',
-      icon: '/logo/mongodb.svg',
-    },
-    {
-      name: 'Prisma',
-      icon: '/logo/prisma.png',
-    },
+    { name: 'PostgreSQL', icon: '/logo/postgreSQL.png' },
+    { name: 'Supabase' },
+    { name: 'MySQL', icon: '/logo/mysql.svg' },
+    { name: 'MongoDB', icon: '/logo/mongodb.svg' },
   ],
   tools: [
-    {
-      name: 'Git',
-      icon: '/logo/git.png',
-    },
-    {
-      name: 'Docker',
-      icon: '/logo/docker.svg',
-    },
-    {
-      name: 'AWS',
-      icon: '/logo/aws.png',
-    },
+    { name: 'Git', icon: '/logo/git.png' },
+    { name: 'Docker', icon: '/logo/docker.svg' },
+    { name: 'Playwright' },
+    { name: 'Linux' },
   ],
 };
 
 export const PROJECTS: IProject[] = [
-
-  // === New GitHub Projects ===
   {
-    title: 'Ytmp4 Downloader',
-    slug: 'ytmp4',
-    techStack: ['Next.js', 'TypeScript', 'Python', 'JavaScript', 'Debian Linux', 'Docker'],
-    thumbnail: '/projects/thumbnail/ytmp4.png',
-    longThumbnail: '/projects/long/ytmp4.png',
-    images: [
-      '/projects/images/ytmp4-1.png',
-      '/projects/images/ytmp4-2.png',
-      '/projects/images/ytmp4-3.png',
-    ],
-    sourceCode: 'https://github.com/HaseeburRehma/ytmp4',
-    liveUrl: 'https://youtubetomp4download.com/',
+    title: 'FixDone',
+    slug: 'fixdone',
+    category: 'Web platform',
+    techStack: ['Next.js', 'TypeScript', 'Supabase', 'OpenAI', 'Leaflet', 'Resend'],
+    thumbnail: '/projects/v2/fixdone/thumb.webp',
+    longThumbnail: '/projects/v2/fixdone/1.webp',
+    images: ['/projects/v2/fixdone/1.webp', '/projects/v2/fixdone/2.webp', '/projects/v2/fixdone/3.webp'],
+    sourceCode: 'https://github.com/HaseeburRehma/fixdone-platform',
+    liveUrl: 'https://fixdone-platform.vercel.app',
+    year: 2026,
+    description: `Lead-to-job platform for a German bathroom-renovation business. A conversion-focused landing page collects consultation requests, and a dashboard turns them into jobs: an OpenAI step scores every incoming lead and returns a structured JSON decision (dispatch now, schedule or follow up), technicians are matched by skill, area and workload, and jobs are shown on a map.`,
+    role: `Full-stack developer (freelance)<br/>
+    - Built the Next.js App Router front end and the Supabase/PostgreSQL backend.<br/>
+    - Added LLM lead scoring with structured output and a fallback when the model call fails.<br/>
+    - Zod-validated lead webhook, role-based areas for admins and partners, transactional email with Resend.`,
+  },
+  {
+    title: 'RLS Benchmark',
+    slug: 'postgres-rls-benchmark',
+    category: 'Open source research',
+    techStack: ['PostgreSQL', 'pgbench', 'SQL', 'Python'],
+    thumbnail: '/projects/v2/postgres-rls-benchmark/thumb.webp',
+    longThumbnail: '/projects/v2/postgres-rls-benchmark/1.webp',
+    images: ['/projects/v2/postgres-rls-benchmark/1.webp', '/projects/v2/postgres-rls-benchmark/2.webp', '/projects/v2/postgres-rls-benchmark/3.webp'],
+    sourceCode: 'https://github.com/HaseeburRehma/postgres-rls-benchmark',
+    year: 2026,
+    description: `What does row-level security cost in a multi-tenant app? I compared 7 tenant-isolation setups on 2 million rows with pgbench and saved query plans. Every policy isolated tenants correctly, but the same query took <b>0.19 ms</b> with one policy and <b>225 ms</b> with another, and up to 9 s with a per-row function, because a membership subquery turns into a filter over every row instead of an index condition.`,
+    role: `Author<br/>
+    - Designed the synthetic schema (200 organisations, 2 million shifts) and the 7 policy variants.<br/>
+    - Ran the benchmark, captured EXPLAIN plans and checked isolation for every variant.<br/>
+    - Wrote the report with charts and practical rules for writing fast RLS policies.`,
+  },
+  {
+    title: 'Dentovilla Center',
+    slug: 'dentovilla',
+    category: 'Website',
+    techStack: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Motion', 'Lenis'],
+    thumbnail: '/projects/v2/dentovilla/thumb.webp',
+    longThumbnail: '/projects/v2/dentovilla/1.webp',
+    images: ['/projects/v2/dentovilla/1.webp', '/projects/v2/dentovilla/2.webp', '/projects/v2/dentovilla/3.webp'],
+    sourceCode: 'https://github.com/HaseeburRehma/Dentovilla-Center',
+    liveUrl: 'https://dentovilla-center.vercel.app',
+    year: 2026,
+    description: `Website for a dental clinic in Islamabad with a calm, editorial design: treatment pages, patient reviews, clinic details and one-tap WhatsApp booking.`,
+    role: `Design-to-code and development<br/>
+    - Built the responsive layout in Next.js and Tailwind CSS.<br/>
+    - Scroll and reveal animations with Motion and Lenis, kept light on mobile.<br/>
+    - Optimised images and fonts for fast loads.`,
+  },
+  {
+    title: 'Research Bridge',
+    slug: 'research-bridge',
+    category: 'Website',
+    techStack: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Motion'],
+    thumbnail: '/projects/v2/research-bridge/thumb.webp',
+    longThumbnail: '/projects/v2/research-bridge/1.webp',
+    images: ['/projects/v2/research-bridge/1.webp', '/projects/v2/research-bridge/2.webp', '/projects/v2/research-bridge/3.webp'],
+    sourceCode: 'https://github.com/HaseeburRehma/research-bridge',
+    liveUrl: 'https://research-bridge-gamma.vercel.app',
+    year: 2026,
+    description: `Marketing site for a research-support service for MPhil and PhD students: services, a clear four-step process, testimonials and a contact flow.`,
+    role: `Front-end developer<br/>
+    - Built the site in Next.js 16 with Tailwind CSS and Motion.<br/>
+    - Contact form through Web3Forms, so no server keys live in the browser.<br/>
+    - Responsive, accessible components and smooth scrolling.`,
+  },
+  {
+    title: 'Dev N Scale',
+    slug: 'devnscale',
+    category: 'Website',
+    techStack: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Motion', 'Resend', 'Vitest'],
+    thumbnail: '/projects/v2/devnscale/thumb.webp',
+    longThumbnail: '/projects/v2/devnscale/1.webp',
+    images: ['/projects/v2/devnscale/1.webp', '/projects/v2/devnscale/2.webp'],
+    sourceCode: 'https://github.com/HaseeburRehma/devnscale',
+    liveUrl: 'https://www.devnscale.com',
+    year: 2026,
+    description: `Website for an IT consulting and development agency, built pixel-accurate from Figma: service panels, case studies, client logos and a project enquiry form.`,
+    role: `Front-end developer<br/>
+    - Turned the Figma design into Next.js 16 components with Tailwind CSS.<br/>
+    - Animations with Motion and Lenis; enquiry emails sent through Resend.<br/>
+    - Unit tests with Vitest for the form logic.`,
+  },
+  {
+    title: 'Med Wear Fit',
+    slug: 'medwearfit',
+    category: 'E-commerce & POS',
+    techStack: ['Laravel', 'PHP', 'Shopify', 'Zapier'],
+    thumbnail: '/projects/v2/medwearfit/thumb.webp',
+    longThumbnail: '/projects/v2/medwearfit/1.webp',
+    images: ['/projects/v2/medwearfit/1.webp', '/projects/v2/medwearfit/2.webp', '/projects/v2/medwearfit/3.webp', '/projects/v2/medwearfit/4.webp'],
+    liveUrl: 'https://wearmedfit.com',
     year: 2025,
-    description: `Ytmp4 is a high‑performance YouTube‑to‑MP4 converter built with a TypeScript/React frontend and Python backend. It uses ffmpeg under the hood and runs inside Docker on Debian for rock‑solid reliability.`,
-    role: `Lead Developer<br/>
-    - Designed and containerized the conversion pipeline using Python and ffmpeg.<br/>
-    - Built a responsive React/TypeScript UI with progress tracking.<br/>
-    - Automated builds & deployments with Docker and CI/CD pipelines.`,
+    description: `Medical-wear brand in Pakistan (built at ALEV Digital). I developed and maintained the Laravel point-of-sale portal behind the store and connected it to WhatsApp, email, the Shopify web store and Google Sheets through Zapier. The screenshots show the public storefront.`,
+    role: `Web developer<br/>
+    - Developed and maintained the PHP/Laravel POS portal.<br/>
+    - Built order and customer automations across WhatsApp, email, Shopify and Google Sheets.<br/>
+    - Optimised the portal to a Google PageSpeed score of 98.`,
   },
   {
     title: 'VoiceAi Transcriber',
     slug: 'voiceai',
-    techStack: ['React', 'Node.js', 'OpenAI Whisper API', 'TypeScript'],
-    thumbnail: '/projects/thumbnail/voiceai.png',
-    longThumbnail: '/projects/long/voiceai.png',
-    images: [
-      '/projects/images/voiceai-1.png',
-      '/projects/images/voiceai-2.png',
-    ],
+    category: 'AI tool',
+    techStack: ['React', 'Node.js', 'TypeScript', 'OpenAI Whisper'],
+    thumbnail: '/projects/v2/voiceai/thumb.webp',
+    longThumbnail: '/projects/v2/voiceai/1.webp',
+    images: ['/projects/v2/voiceai/1.webp', '/projects/v2/voiceai/2.webp'],
     sourceCode: 'https://github.com/HaseeburRehma/VoiceAi',
-    liveUrl: '',
     year: 2025,
-    description: `VoiceAi leverages OpenAI’s Whisper API to transcribe and analyze audio in real time. It provides speaker‑diarization, keyword extraction, and a clean, searchable transcript UI.`,
-    role: `Full‑Stack Developer<br/>
-    - Integrated Whisper API for accurate speech‑to‑text conversion.<br/>
-    - Built a TypeScript/React frontend with real‑time progress updates.<br/>
-    - Developed a Node.js backend for job queuing and transcript storage.`,
+    description: `Speech-to-text tool built on OpenAI Whisper: upload or record audio, follow progress live, and get a clean, searchable transcript.`,
+    role: `Full-stack developer<br/>
+    - Integrated Whisper for transcription.<br/>
+    - Built the React/TypeScript front end with live progress updates.<br/>
+    - Node.js backend for queuing jobs and storing transcripts.`,
   },
-  {
-    title: '3D Model Simulation',
-    slug: 'hand-tracking-opencv',
-    techStack: ['Python', 'OpenCV', 'Unity', 'Socket.io', 'MediaPipe', '3D Modeling', 'URP Lighting'],
-    thumbnail: '/projects/thumbnail/hand-tracking-opencv.jpeg',
-    longThumbnail: '/projects/long/hand-tracking-opencv.jpeg',
-    images: [
-      '/projects/images/hand-tracking-opencv.jpeg',
-      '/projects/images/hand-tracking-opencv-1.jpeg',
-      '/projects/images/hand-tracking-opencv-2.jpeg',
-    ],
-    sourceCode: 'https://github.com/HaseeburRehma/Hand-Tracking-using-openCV',
-    liveUrl: '',
-    year: 2023,
-    description: `A Unity‑based 3D car simulation controlled entirely by real‑time hand gestures. OpenCV and MediaPipe detect your hand in Python, then stream commands via Socket.io into Unity for immersive control.`,
-    role: `R&D Lead<br/>
-    - Implemented Python/MediaPipe hand‑landmark detection.<br/>
-    - Streamed gesture data with Socket.io into Unity scenes.<br/>
-    - Configured URP lighting & physics for a smooth simulation.`,
-  },
-  // === Client Websites ===
   {
     title: 'Peter Thomas Roth',
     slug: 'peter-thomas-roth',
+    category: 'E-commerce',
     techStack: ['Shopify', 'Liquid', 'JavaScript', 'CSS'],
-    thumbnail: '/projects/thumbnail/peter-thomas-roth.png',
-    longThumbnail: '/projects/long/peter-thomas-roth.png',
-    images: [
-      '/projects/images/peter-thomas-roth-1.png',
-    ],
+    thumbnail: '/projects/v2/peter-thomas-roth/thumb.webp',
+    longThumbnail: '/projects/v2/peter-thomas-roth/1.webp',
+    images: ['/projects/v2/peter-thomas-roth/1.webp'],
     liveUrl: 'https://www.peterthomasroth.com/',
     year: 2024,
-    description: `Official e-commerce website for Peter Thomas Roth, showcasing premium skincare products.`,
-    role: `Front-End Developer<br/>
-      - Implemented custom Shopify theme.<br/>
-      - Optimized for performance and SEO.<br/>
-      - Integrated third-party review widget.`,
-  },
-  {
-    title: 'Alkabir Developer',
-    slug: 'alkabir-developer',
-    techStack: ['WordPress', 'Bootstrap', 'PHP', 'JavaScript'],
-    thumbnail: '/projects/thumbnail/alkabir-developer.png',
-    longThumbnail: '/projects/long/alkabir-developer.png',
-    images: [
-      '/projects/images/alkabir-developer-1.png',
-    ],
-    liveUrl: 'https://alkabirdeveloper.com/',
-    year: 2024,
-    description: `Corporate website for Alkabir Developer, highlighting real estate projects and company portfolio.`,
-    role: `WordPress Developer<br/>
-      - Built custom layouts with html5, css3, bootstrap and php.<br/>
-      - Added dynamic sections via PHP templates.<br/>
-      - Ensured cross-browser compatibility.`,
-  },
-  {
-    title: 'WearMeDFit',
-    slug: 'wearmedfit',
-    techStack: ['Codeignitor', 'Shopify', 'PHP', 'JavaScript'],
-    thumbnail: '/projects/thumbnail/wearmedfit.png',
-    longThumbnail: '/projects/long/wearmedfit.png',
-    images: [
-      '/projects/images/wearmedfit.png',
-    ],
-    liveUrl: 'https://wearmedfit.com/?srsltid=AfmBOop_8IXEFYqx0G09Pww_BVtlXiKNA4Nmzj02_nISIRChXgfLaRcl',
-    year: 2024,
-    description: `E-commerce platform for WearMeDFit, offering custom-fit wearable products with seamless shopping experience.`,
-    role: `php Developer<br/>
-      - Customized product pages and checkout flow.<br/>
-      - Integrated payment gateways.<br/>
-      - Enhanced UX with responsive design.`,
+    description: `Storefront work for the US skincare brand Peter Thomas Roth (at ENCS Networks), plus a product-knowledge chatbot that classifies customer questions against a structured product knowledge base.`,
+    role: `Front-end developer<br/>
+    - Shopify theme work in Liquid, JavaScript and CSS.<br/>
+    - Performance and SEO improvements.<br/>
+    - Built the product-knowledge chatbot.`,
   },
   {
     title: 'Gladiator Password Vault',
     slug: 'gladiator-password-vault',
-    techStack: ['React', 'Express.js', 'MongoDB', 'Node.js', 'Tailwind CSS', 'JavaScript'],
-    thumbnail: '/projects/thumbnail/gladiator-password-vault.png',
-    longThumbnail: '/projects/long/gladiator-password-vault.png',
-    images: ['/projects/images/gladiator-password-vault-1.png'],
-    sourceCode: 'https://github.com/HaseeburRehma/gladiator-password-vault',
-    liveUrl: '',
+    category: 'Security app',
+    techStack: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'shadcn/ui'],
+    thumbnail: '/projects/v2/gladiator-password-vault/thumb.webp',
+    longThumbnail: '/projects/v2/gladiator-password-vault/1.webp',
+    images: ['/projects/v2/gladiator-password-vault/1.webp'],
     year: 2024,
-    description: `A secure credential manager that encrypts and stores your passwords in MongoDB. Features include AES encryption, JWT‑based auth, and an intuitive React/Tailwind UI.`,
-    role: `Full‑Stack Developer<br/>
-    - Designed Express.js REST APIs with AES‑256 encryption.<br/>
-    - Architected a MongoDB schema for secure vault storage.<br/>
-    - Built React/Tailwind frontend with vault CRUD operations.`,
+    description: `A credential-management (password vault) web app built at ENCS Networks for storing and organising sensitive logins.`,
+    role: `Front-end developer<br/>
+    - Built the vault UI in React, TypeScript and Vite.<br/>
+    - Accessible components with Tailwind CSS and shadcn/ui.<br/>
+    - Search, grouping and secure copy flows for credentials.`,
   },
   {
-    title: 'Lead Magnet Generator',
-    slug: 'lead-magnet-generator',
-    techStack: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Node.js'],
-    thumbnail: '/projects/thumbnail/lead-magnet-generator.webp',
-    longThumbnail: '/projects/long/lead-magnet-generator.webp',
-    images: [
-      '/projects/images/lead-magnet-generator-1.webp',
-      '/projects/images/lead-magnet-generator-2.webp',
-    ],
-    sourceCode: 'https://github.com/HaseeburRehma/lead-magnet',
-    liveUrl: '',
-    year: 2025,
-    description: `An automated tool that creates on‑brand lead magnets (eBooks, checklists) from template libraries. It generates styled PDF outputs based on user inputs.`,
-    role: `Full‑Stack Developer<br/>
-    - Built generation engine with Node.js and dynamic templates.<br/>
-    - Developed a Next.js UI for selecting templates and live previews.<br/>
-    - Styled components with Tailwind and handled PDF output.`,
-  },
-  {
-    title: 'U‑MART Web App',
-    slug: 'u-mart-webapp',
-    techStack: ['Vue.js', 'Firebase', 'Vuetify', 'JavaScript'],
-    thumbnail: '/projects/thumbnail/u-mart-webapp.webp',
-    longThumbnail: '/projects/long/u-mart-webapp.webp',
-    sourceCode: 'https://github.com/HaseeburRehma/U-MART-WebApp',
-    images: [],
-    liveUrl: '',
+    title: 'Alkabir Developer',
+    slug: 'alkabir-developer',
+    category: 'Website',
+    techStack: ['WordPress', 'PHP', 'Bootstrap', 'JavaScript'],
+    thumbnail: '/projects/v2/alkabir-developer/thumb.webp',
+    longThumbnail: '/projects/v2/alkabir-developer/1.webp',
+    images: ['/projects/v2/alkabir-developer/1.webp', '/projects/v2/alkabir-developer/2.webp'],
+    liveUrl: 'https://alkabirdeveloper.com/',
     year: 2024,
-    description: `A PWA shopping platform powered by Firebase for authentication, Firestore, and serverless functions. Users enjoy offline support and real‑time inventory updates.`,
-    role: `Frontend Developer<br/>
-    - Crafted responsive layouts using Vuetify.<br/>
-    - Integrated Firebase Auth & Firestore with real‑time listeners.<br/>
-    - Implemented service workers for offline capabilities.`,
+    description: `Corporate website for Alkabir Developer, a real-estate developer, presenting its housing projects and company profile.`,
+    role: `WordPress developer<br/>
+    - Custom layouts with PHP templates, HTML, CSS and Bootstrap.<br/>
+    - Dynamic project sections managed from WordPress.<br/>
+    - Cross-browser and responsive testing.`,
   },
   {
-    title: 'Pacman Game in Unity',
-    slug: 'pacman-game-unity',
-    techStack: ['C#', 'Unity'],
-    thumbnail: '/projects/thumbnail/pacman-game-unity.webp',
-    longThumbnail: '/projects/long/pacman-game-unity.webp',
-    sourceCode: 'https://github.com/HaseeburRehma/Pacman-Game-in-unity',
-    images: [],
-    liveUrl: '',
-    year: 2022,
-    description: `A faithful Pacman remake in Unity featuring custom ghost AI, smooth tile‑based movement, and classic sound effects.`,
-    role: `Game Developer<br/>
-    - Designed maze layouts and implemented tile movement.<br/>
-    - Coded state‑driven ghost AI and power‑up mechanics.<br/>
-    - Integrated UI and audio for an authentic arcade feel.`,
-  },
-  {
-    title: 'Computer Vision Experiments',
-    slug: 'computer-vision',
-    techStack: ['Python', 'OpenCV', 'TensorFlow'],
-    thumbnail: '/projects/thumbnail/computer-vision.webp',
-    longThumbnail: '/projects/long/computer-vision.webp',
-    sourceCode: 'https://github.com/HaseeburRehma/Computer-Vision',
-    images: [],
-    liveUrl: '',
+    title: '3D Model Simulation',
+    slug: 'hand-tracking-opencv',
+    category: 'Final-year project',
+    techStack: ['Python', 'OpenCV', 'MediaPipe', 'Unity', 'C#'],
+    thumbnail: '/projects/v2/hand-tracking-opencv/thumb.webp',
+    longThumbnail: '/projects/v2/hand-tracking-opencv/1.webp',
+    images: ['/projects/v2/hand-tracking-opencv/1.webp', '/projects/v2/hand-tracking-opencv/2.webp', '/projects/v2/hand-tracking-opencv/3.webp'],
+    sourceCode: 'https://github.com/HaseeburRehma/Hand-Tracking-using-openCV',
     year: 2023,
-    description: `A suite of CV prototypes covering object detection (YOLO), semantic segmentation, and tracking using OpenCV and TensorFlow.`,
-    role: `Lead Researcher<br/>
-    - Built YOLO‑based detection pipelines.<br/>
-    - Implemented segmentation models with TensorFlow.<br/>
-    - Created demo scripts and visualization tools.`,
+    description: `My final-year project (graded A): a 3D scene in Unity controlled entirely by real-time hand gestures. A Python pipeline with OpenCV and MediaPipe detects the hand and streams commands into Unity.`,
+    role: `Developer<br/>
+    - Hand-landmark detection and gesture classification in Python.<br/>
+    - Real-time streaming of gesture commands into Unity.<br/>
+    - Unity scene, physics and lighting.`,
   },
-  {
-    title: 'Data Science Portfolio',
-    slug: 'data-science-portfolio',
-    techStack: ['Python', 'pandas', 'NumPy', 'Matplotlib', 'scikit-learn'],
-    thumbnail: '/projects/thumbnail/data-science.webp',
-    longThumbnail: '/projects/long/data-science.webp',
-    sourceCode: 'https://github.com/HaseeburRehma/Data-Science-',
-    images: [],
-    liveUrl: '',
-    year: 2024,
-    description: `A showcase of end‑to‑end DS workflows: EDA, visualization, feature engineering, and ML model deployment.`,
-    role: `Data Scientist<br/>
-    - Conducted exploratory data analysis and feature selection.<br/>
-    - Trained & evaluated regression and classification models.<br/>
-    - Developed production‑ready code for model inference.`,
-  },
-
-
 ];
 
 
 export const MY_EXPERIENCE = [
   {
-    title: 'Software Developer ',
-    company: 'Alev Digital',
-    duration: 'Dec 2024 - Present',
+    title: 'Full-Stack Developer',
+    company: 'Digital To Design',
+    duration: 'Feb 2026 - Present',
   },
   {
-    title: 'Associate Software Developer',
-    company: 'ENCS',
-    duration: 'Jan 2024 - Nov 2024',
+    title: 'Web Developer',
+    company: 'ALEV Digital',
+    duration: 'Dec 2024 - Jan 2026',
+  },
+  {
+    title: 'Web Application Developer',
+    company: 'ENCS Networks',
+    duration: 'Sep 2023 - Dec 2024',
   },
   {
     title: 'Software Engineer Intern',
     company: 'MedoConnect',
     duration: 'June 2023 - Dec 2023',
   },
-
-
 ];

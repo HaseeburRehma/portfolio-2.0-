@@ -133,12 +133,21 @@ const ProjectDetails = ({ project }: Props) => {
                         </div>
 
                         <div className="max-w-[635px] space-y-7 pb-20 mx-auto">
-                            <div className="fade-in-later">
-                                <p className="text-muted-foreground font-anton mb-3">
-                                    Year
-                                </p>
-
-                                <div className="text-lg">{project.year}</div>
+                            <div className="fade-in-later flex gap-12">
+                                <div>
+                                    <p className="text-muted-foreground font-anton mb-3">
+                                        Year
+                                    </p>
+                                    <div className="text-lg">{project.year}</div>
+                                </div>
+                                {project.category && (
+                                    <div>
+                                        <p className="text-muted-foreground font-anton mb-3">
+                                            Type
+                                        </p>
+                                        <div className="text-lg">{project.category}</div>
+                                    </div>
+                                )}
                             </div>
                             <div className="fade-in-later">
                                 <p className="text-muted-foreground font-anton mb-3">
@@ -176,13 +185,13 @@ const ProjectDetails = ({ project }: Props) => {
                 </div>
 
                 <div
-                    className="fade-in-later relative flex flex-col gap-2 max-w-[800px] mx-auto"
+                    className="fade-in-later relative flex flex-col gap-4 max-w-[960px] mx-auto"
                     id="images"
                 >
                     {project.images.map((image) => (
                         <div
                             key={image}
-                            className="group relative w-full aspect-[750/400] bg-background-light"
+                            className="group relative w-full aspect-[16/10] overflow-hidden rounded-2xl border border-white/10 bg-background-light"
                             style={{
                                 backgroundImage: `url(${image})`,
                                 backgroundSize: 'cover',

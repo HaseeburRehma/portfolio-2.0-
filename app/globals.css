@@ -4,27 +4,27 @@
 
 @layer base {
     :root {
-        --background: 0 0% 13%;
-        --background-light: 0 0% 19%;
-        --foreground: 0 0% 87%;
+        --background: 0 0% 3.5%;
+        --background-light: 0 0% 9%;
+        --foreground: 0 0% 92%;
 
-        --card: 0 0% 3.9%;
+        --card: 0 0% 6.5%;
         --card-foreground: 0 0% 98%;
         --popover: 0 0% 3.9%;
         --popover-foreground: 0 0% 98%;
 
         --primary: 140 100% 47%;
-        --primary-foreground: 0 0% 13%;
+        --primary-foreground: 0 0% 4%;
         --secondary: 193 100% 47%;
-        --secondary-foreground: 0 0% 13%;
-        --muted: 0 0% 14.9%;
-        --muted-foreground: 0 0% 71%;
-        --accent: 0 0% 14.9%;
+        --secondary-foreground: 0 0% 4%;
+        --muted: 0 0% 10%;
+        --muted-foreground: 0 0% 62%;
+        --accent: 0 0% 10%;
         --accent-foreground: 0 0% 98%;
         --destructive: 0 62.8% 30.6%;
         --destructive-foreground: 0 0% 98%;
-        --border: 0 0% 24%;
-        --input: 0 0% 14.9%;
+        --border: 0 0% 15%;
+        --input: 0 0% 12%;
         --ring: 0 0% 83.1%;
         --chart-1: 220 70% 50%;
         --chart-2: 160 60% 45%;
@@ -44,6 +44,9 @@
     body {
         @apply bg-background text-foreground font-roboto-flex;
     }
+    ::selection {
+        @apply bg-primary text-primary-foreground;
+    }
 }
 
 @layer components {
@@ -53,5 +56,16 @@
 
     .markdown-text ul {
         @apply pl-5 mt-2 list-disc;
+    }
+}
+
+@layer utilities {
+    .text-balance { text-wrap: balance; }
+    .bg-grid-fade {
+        background-image:
+            linear-gradient(hsl(var(--border) / 0.35) 1px, transparent 1px),
+            linear-gradient(90deg, hsl(var(--border) / 0.35) 1px, transparent 1px);
+        background-size: 64px 64px;
+        mask-image: radial-gradient(ellipse at center, black 20%, transparent 70%);
     }
 }

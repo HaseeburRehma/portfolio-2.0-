@@ -19,16 +19,17 @@ const antonFont = Anton({
     variable: '--font-anton',
 });
 
+// Variable font (all weights): Google now serves fixed-weight Roboto Flex from a URL
+// format that Next 15.2's font loader can't parse, which broke `next build`.
 const robotoFlex = Roboto_Flex({
-    weight: ['100', '400', '500', '600', '700', '800'],
     style: 'normal',
     subsets: ['latin'],
     variable: '--font-roboto-flex',
 });
 
 export const metadata: Metadata = {
-    title: 'Portfolio - Haseeb Ur Rehman',
-    description: 'Personal portfolio of HAseeb Ur Rehman',
+    title: 'Haseeb Ur Rehman · Full-Stack Developer',
+    description: 'Full-stack developer from Islamabad building web and mobile products with Next.js, React Native, Node.js and PostgreSQL.',
 };
 
 export default function RootLayout({
@@ -37,7 +38,7 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en">
+        <html lang="en" className="bg-[#090909]">
 
 
             <body

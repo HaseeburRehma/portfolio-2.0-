@@ -62,86 +62,100 @@ const Banner = () => {
     return (
         <section className="relative overflow-hidden  z-0" id="banner">
             <ArrowAnimation />
-            <div className="absolute inset-0  z-0 pointer-events-none bg-gradient-to-r from-background/80 via-background/50 to-background z-0"></div>
+            
 
             {/* Decorative elements */}
-            <div className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-primary/5 blur-3xl"></div>
-            <div className="absolute bottom-1/4 right-1/4 w-72 h-72 rounded-full bg-primary/10 blur-3xl"></div>
+            <div className="absolute top-1/4 left-1/4 w-72 h-72 rounded-full bg-primary/[0.06] blur-3xl pointer-events-none"></div>
+            
+
+            <div className="absolute inset-0 bg-grid-fade opacity-60 pointer-events-none z-0"></div>
 
             <div
-                className="container h-[100svh] min-h-[530px] max-md:pb-10 grid md:grid-cols-2 gap-8 items-center relative z-10"
+                className="container min-h-[100svh] pt-28 pb-16 md:py-0 grid md:grid-cols-2 gap-12 md:gap-8 items-center relative z-10"
                 ref={containerRef}
             >
-                {/* Image Section - Left */}
-                <div className="order-2 md:order-1 h-full flex items-center justify-center relative" ref={imageRef}>
+                {/* Portrait */}
+                <div className="order-2 md:order-1 flex items-center justify-center relative" ref={imageRef}>
                     <div
-                        className={`relative w-full max-w-[450px] aspect-[3/4] overflow-hidden rounded-2xl banner-slide-up-and-fade transition-opacity duration-500 ${preloaderComplete ? "opacity-100" : "opacity-0"
-                            }`}
+                        className={`relative w-full max-w-[420px] banner-slide-up-and-fade transition-opacity duration-500 ${preloaderComplete ? "opacity-100" : "opacity-0"}`}
                     >
-                        <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent mix-blend-overlay z-10"></div>
-                        {preloaderComplete && (
-                            <Image
-                                src="/haseeb1.jpeg"
-                                alt="Haseeb - Frontend Developer"
-                                fill
-                                className="object-cover object-center"
-                                priority
-                            />
-                        )}
-                    </div>
-
-                    {/* Floating badge */}
-                    <div
-                        className={`absolute -bottom-4 -right-4 md:bottom-8 md:right-8 bg-background border border-border p-4 rounded-xl shadow-lg banner-slide-up-and-fade transition-opacity duration-500 ${preloaderComplete ? "opacity-100" : "opacity-0"
-                            }`}
-                    >
-                        <div className="flex gap-3 items-center">
-                            <div className="h-3 w-3 rounded-full bg-green-500 animate-pulse"></div>
-                            <span className="text-sm font-medium">Available for work</span>
+                        <div className="absolute -inset-6 rounded-[2rem] bg-primary/20 blur-3xl opacity-40" aria-hidden="true"></div>
+                        <div className="relative aspect-[4/5] overflow-hidden rounded-[1.75rem] border border-white/10 bg-[#0a0a0a] shadow-[0_30px_80px_-20px_rgba(0,0,0,0.9)]">
+                            {preloaderComplete && (
+                                <Image
+                                    src="/haseeb-portrait.webp"
+                                    alt="Haseeb Ur Rehman, full-stack developer"
+                                    fill
+                                    sizes="(max-width: 768px) 90vw, 420px"
+                                    className="object-cover object-top"
+                                    priority
+                                />
+                            )}
+                            <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/60 to-transparent"></div>
+                            <div className="absolute left-5 right-5 bottom-5 flex items-end justify-between gap-3">
+                                <div>
+                                    <p className="font-anton text-2xl leading-none">Haseeb Ur Rehman</p>
+                                    <p className="mt-1.5 text-sm text-muted-foreground">Islamabad, Pakistan · remote</p>
+                                </div>
+                                <div className="flex items-center gap-2 rounded-full border border-white/10 bg-black/60 backdrop-blur px-3 py-1.5">
+                                    <span className="h-2 w-2 rounded-full bg-primary animate-pulse"></span>
+                                    <span className="text-xs font-medium whitespace-nowrap">Available for work</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                {/* Content Section - Right */}
+                {/* Content */}
                 <div
-                    className={`order-1 md:order-2 flex flex-col justify-center items-start max-w-[544px] transition-opacity duration-500 ${preloaderComplete ? "opacity-100" : "opacity-0"
-                        }`}
+                    className={`order-1 md:order-2 flex flex-col justify-center items-start max-w-[560px] transition-opacity duration-500 ${preloaderComplete ? "opacity-100" : "opacity-0"}`}
                 >
-                    <h1 className="banner-title banner-slide-up-and-fade leading-[.95] text-6xl sm:text-[80px] font-anton">
-                        <span className="text-primary">Software</span>
-                        <br /> <span className="ml-4">DEVELOPER</span>
+                    <p className="banner-slide-up-and-fade mb-5 inline-flex items-center gap-2 rounded-full border border-border bg-background-light/60 px-3.5 py-1.5 text-xs uppercase tracking-[0.2em] text-muted-foreground">
+                        Next.js · React Native · PostgreSQL
+                    </p>
+                    <h1 className="banner-title banner-slide-up-and-fade leading-[.92] text-6xl sm:text-[84px] font-anton">
+                        <span className="text-primary">Full-Stack</span>
+                        <br /> DEVELOPER
                     </h1>
-                    <p className="banner-description banner-slide-up-and-fade mt-6 text-lg text-muted-foreground">
-                        Hi! I&apos;m <span className="font-medium text-foreground">Haseeb</span>. A creative Software Developer with
-                        3+ years of experience in building high-performance, scalable, and responsive web solutions.
+                    <p className="banner-description banner-slide-up-and-fade mt-6 text-lg text-muted-foreground text-balance">
+                        Hi! I&apos;m <span className="font-medium text-foreground">Haseeb</span>. I build web and mobile
+                        products end to end, from the database schema to the App Store release, with a focus on
+                        security, performance and clean interfaces.
                     </p>
 
-                    {/* Stats row */}
-                    <div className="grid grid-cols-3 gap-6 mt-8 banner-slide-up-and-fade w-full">
-                        <div className="banner-slide-up-and-fade">
+                    <div className="grid grid-cols-3 gap-6 mt-9 banner-slide-up-and-fade w-full border-t border-border pt-7">
+                        <div>
                             <h5 className="text-3xl sm:text-4xl font-anton text-primary mb-1.5">3+</h5>
-                            <p className="text-muted-foreground text-sm">Years of Experience</p>
+                            <p className="text-muted-foreground text-sm">Years of experience</p>
                         </div>
-                        <div className="banner-slide-up-and-fade">
+                        <div>
                             <h5 className="text-3xl sm:text-4xl font-anton text-primary mb-1.5">15+</h5>
-                            <p className="text-muted-foreground text-sm">Completed Projects</p>
+                            <p className="text-muted-foreground text-sm">Projects delivered</p>
                         </div>
-                        <div className="banner-slide-up-and-fade">
-                            <h5 className="text-3xl sm:text-4xl font-anton text-primary mb-1.5">10K+</h5>
-                            <p className="text-muted-foreground text-sm">Hours Worked</p>
+                        <div>
+                            <h5 className="text-3xl sm:text-4xl font-anton text-primary mb-1.5">5</h5>
+                            <p className="text-muted-foreground text-sm">Apps on App Store &amp; Google Play</p>
                         </div>
                     </div>
 
-                    <Button
-                        as="link"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        href={GENERAL_INFO.upworkProfile}
-                        variant="primary"
-                        className="mt-9 banner-button banner-slide-up-and-fade"
-                    >
-                        Hire Me
-                    </Button>
+                    <div className="mt-9 flex flex-wrap gap-3 banner-slide-up-and-fade">
+                        <Button
+                            as="link"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            href={GENERAL_INFO.upworkProfile}
+                            variant="primary"
+                            className="banner-button"
+                        >
+                            Hire Me
+                        </Button>
+                        <a
+                            href="#selected-projects"
+                            className="inline-flex h-12 items-center rounded-full border border-border px-6 text-sm font-medium uppercase tracking-wide hover:border-primary hover:text-primary transition-colors"
+                        >
+                            View projects
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
